@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Student - Qwin Chess Academy</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #181818;
+            padding: 20px 40px;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.logo-symbol {
+    color: #f4c542;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.logo-text {
+    color: #ffffff;
+}
+
+.logo:first-letter {
+    font-size: 30px;
+}
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #aaa;
+        }
+
+        .form-box {
+            background: #1d1d1d;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ddd;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background: #292929;
+            color: white;
+            border: 1px solid #444;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #e5b93f;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .save-btn {
+            background: #e5b93f;
+            color: #111;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .save-btn:hover {
+            background: #f1c84b;
+        }
+
+        .back-btn {
+            background: #444;
+            color: white;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #555;
+        }
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding: 20px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .form-box {
+                padding: 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+    <span class="logo-symbol">♛</span>
+    <span class="logo-text">Qwin Chess Academy</span>
+</div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+        <div class="title">
+
+            <h1>Edit Student</h1>
+
+            <p>
+                Update the student's registration details.
+            </p>
+
+        </div>
+
+
+        <div class="form-box">
+
+            <form
+                method="POST"
+                action="{{ url_for('edit_student', registration_id=registration.id) }}"
+            >
+
+                <!-- STUDENT NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="student_name"
+                        value="{{ registration.student_name }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- AGE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        name="age"
+                        value="{{ registration.age }}"
+                        min="3"
+                        max="100"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PARENT -->
+
+                <div class="form-group">
+
+                    <label>
+                        Parent / Guardian
+                    </label>
+
+                    <input
+                        type="text"
+                        name="parent_name"
+                        value="{{ registration.parent_name }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Phone
+                    </label>
+
+                    <input
+                        type="text"
+                        name="phone"
+                        value="{{ registration.phone }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        value="{{ registration.email }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CHESS LEVEL -->
+
+                <div class="form-group">
+
+                    <label>
+                        Chess Level
+                    </label>
+
+                    <select name="chess_level" required>
+
+                        <option
+                            value="Beginner"
+                            {% if registration.chess_level == "Beginner" %}selected{% endif %}
+                        >
+                            Beginner
+                        </option>
+
+                        <option
+                            value="Intermediate"
+                            {% if registration.chess_level == "Intermediate" %}selected{% endif %}
+                        >
+                            Intermediate
+                        </option>
+
+                        <option
+                            value="Advanced"
+                            {% if registration.chess_level == "Advanced" %}selected{% endif %}
+                        >
+                            Advanced
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label>
+                        Registration Status
+                    </label>
+
+                    <select name="status">
+
+                        <option
+                            value="Pending"
+                            {% if registration.status == "Pending" %}selected{% endif %}
+                        >
+                            Pending
+                        </option>
+
+                        <option
+                            value="Approved"
+                            {% if registration.status == "Approved" %}selected{% endif %}
+                        >
+                            Approved
+                        </option>
+
+                        <option
+                            value="Rejected"
+                            {% if registration.status == "Rejected" %}selected{% endif %}
+                        >
+                            Rejected
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        name="message"
+                        placeholder="Enter message..."
+                    >{{ registration.message or "" }}</textarea>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="buttons">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Changes
+                    </button>
+
+                    <a
+                        href="{{ url_for('admin') }}"
+                        class="back-btn"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

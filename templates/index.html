@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Qwin Chess Academy</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<style>
+    /* =====================================================
+   ENQUIRY SECTION
+===================================================== */
+
+.enquiry-section {
+    width: 100%;
+    padding: 90px 20px;
+    background: #111;
+}
+
+.enquiry-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   LEFT SIDE
+===================================================== */
+
+.enquiry-info {
+    padding: 20px;
+}
+
+.enquiry-label {
+    display: inline-block;
+
+    color: #e5b93f;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.enquiry-info h2 {
+    color: white;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+.enquiry-info h2 span {
+    color: #e5b93f;
+}
+
+.enquiry-info > p {
+    color: #aaa;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    max-width: 520px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   ENQUIRY POINTS
+===================================================== */
+
+.enquiry-points {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+.enquiry-point {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.enquiry-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #1d1d1d;
+
+    border: 1px solid #333;
+
+    border-radius: 8px;
+
+    color: #e5b93f;
+
+    font-size: 22px;
+
+    flex-shrink: 0;
+}
+
+.enquiry-point h3 {
+    color: white;
+
+    font-size: 16px;
+
+    margin-bottom: 4px;
+}
+
+.enquiry-point p {
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FORM BOX
+===================================================== */
+
+.enquiry-form-box {
+    background: #1d1d1d;
+
+    border: 1px solid #333;
+
+    border-radius: 12px;
+
+    padding: 35px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.enquiry-form-box h3 {
+    color: white;
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+.enquiry-form-subtitle {
+    color: #888;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.enquiry-form-group {
+    margin-bottom: 18px;
+}
+
+.enquiry-form-group label {
+    display: block;
+
+    color: #ddd;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.enquiry-form-group input,
+.enquiry-form-group textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: #111;
+
+    color: white;
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.enquiry-form-group input {
+    height: 45px;
+}
+
+.enquiry-form-group textarea {
+    resize: vertical;
+
+    min-height: 110px;
+}
+
+
+/* =====================================================
+   INPUT FOCUS
+===================================================== */
+
+.enquiry-form-group input:focus,
+.enquiry-form-group textarea:focus {
+    border-color: #e5b93f;
+
+    box-shadow: 0 0 0 2px rgba(229, 185, 63, 0.08);
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
+
+.enquiry-form-group input::placeholder,
+.enquiry-form-group textarea::placeholder {
+    color: #666;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.enquiry-submit-btn {
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #e5b93f;
+
+    color: #111;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.enquiry-submit-btn:hover {
+    background: #f1c84b;
+
+    transform: translateY(-1px);
+}
+
+.enquiry-submit-btn span {
+    font-size: 20px;
+}
+/* =====================================================
+   REGISTRATION STATUS SECTION
+===================================================== */
+
+.status-section {
+    width: 100%;
+    padding: 90px 20px;
+    background: #181818;
+}
+
+.status-container {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.status-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.status-title p {
+    color: #e5b93f;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.status-title h2 {
+    color: white;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.status-title span {
+    color: #aaa;
+    font-size: 15px;
+}
+
+.status-form-box {
+    background: #1d1d1d;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.status-form-group {
+    margin-bottom: 20px;
+}
+
+.status-form-group label {
+    display: block;
+    color: #ddd;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.status-form-group input {
+    width: 100%;
+    height: 48px;
+    padding: 12px 14px;
+    background: #111;
+    color: white;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.status-form-group input:focus {
+    border-color: #e5b93f;
+    box-shadow: 0 0 0 2px rgba(229, 185, 63, 0.08);
+}
+
+.status-form-group input::placeholder {
+    color: #666;
+}
+
+.status-check-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 6px;
+    background: #e5b93f;
+    color: #111;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.status-check-btn:hover {
+    background: #f1c84b;
+    transform: translateY(-1px);
+}
+
+
+/* ================= STATUS RESULT ================= */
+
+.status-result {
+    margin-top: 25px;
+    padding: 25px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.status-result h3 {
+    color: white;
+    margin-bottom: 12px;
+}
+
+.status-result p {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.status-pending {
+    background: #765b18;
+    color: #fff;
+}
+
+.status-approved {
+    background: #1d6b3c;
+    color: #fff;
+}
+
+.status-rejected {
+    background: #7a2929;
+    color: #fff;
+}
+
+.status-error {
+    color: #ff7777;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 500px) {
+
+    .status-section {
+        padding: 60px 15px;
+    }
+
+    .status-container {
+        width: 100%;
+    }
+
+    .status-form-box {
+        padding: 25px 20px;
+    }
+
+    .status-title h2 {
+        font-size: 30px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .enquiry-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        width: 95%;
+    }
+
+    .enquiry-info h2 {
+        font-size: 34px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .enquiry-section {
+        padding: 60px 15px;
+    }
+
+    .enquiry-container {
+        width: 100%;
+    }
+
+    .enquiry-form-box {
+        padding: 25px 20px;
+    }
+
+    .enquiry-info h2 {
+        font-size: 30px;
+    }
+
+}
+/* ================================
+   GALLERY
+================================ */
+
+.gallery {
+    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+
+    align-items: stretch;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #1d1d1d;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+@media (max-width: 1000px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-item {
+        height: 280px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .gallery {
+        width: 92%;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .gallery-item {
+        height: 260px;
+    }
+}
+/* =====================================================
+   ONLINE CHESS SESSIONS
+===================================================== */
+
+.online-session {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 35px;
+    background: #1d1d1d;
+    border: 1px solid #333;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.online-session-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.online-label {
+    display: inline-block;
+    color: #e5b93f;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.online-session-header h3 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.online-session-header p {
+    color: #999;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* CONTENT */
+
+.online-session-content {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 25px;
+    padding: 25px;
+    background: #111;
+    border-radius: 10px;
+    border: 1px solid #2f2f2f;
+}
+
+
+/* ICON */
+
+.online-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 50%;
+
+    color: #e5b93f;
+    font-size: 30px;
+}
+
+
+/* INFO */
+
+.online-info h4 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.online-info p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+/* FEATURES */
+
+.online-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
+.online-features span {
+    color: #ddd;
+    font-size: 13px;
+}
+
+
+/* BUTTON */
+
+.online-btn {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    background: #e5b93f;
+    color: #111;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+.online-btn:hover {
+    background: #f1c84b;
+    transform: translateY(-2px);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .online-session {
+        width: 95%;
+        padding: 25px;
+    }
+
+    .online-session-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .online-icon {
+        margin: auto;
+    }
+
+    .online-features {
+        justify-content: center;
+    }
+
+    .online-action {
+        margin-top: 10px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .online-session {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .online-session-header h3 {
+        font-size: 25px;
+    }
+
+    .online-session-content {
+        padding: 20px 15px;
+    }
+}
+/* =====================================================
+   FEE STRUCTURE
+===================================================== */
+
+.fee-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 35px;
+    background: #1d1d1d;
+    border: 1px solid #333;
+    border-radius: 14px;
+}
+
+.fee-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.fee-label {
+    display: inline-block;
+    color: #e5b93f;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.fee-header h3 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.fee-header p {
+    color: #999;
+    font-size: 15px;
+}
+
+.fee-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.fee-card {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.fee-card:hover {
+    transform: translateY(-5px);
+    border-color: #e5b93f;
+}
+
+.fee-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #252525;
+    border-radius: 50%;
+
+    color: #e5b93f;
+    font-size: 28px;
+}
+
+.fee-card h4 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.fee-price {
+    color: #e5b93f;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.fee-price span {
+    color: #999;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.fee-card p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .fee-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .fee-section {
+        width: 92%;
+        padding: 25px 15px;
+    }
+
+    .fee-header h3 {
+        font-size: 25px;
+    }
+
+    .fee-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-card {
+        padding: 25px 20px;
+    }
+
+}
+</style>
+
+
+<body>
+    <script>
+    setTimeout(function () {
+
+        const flash = document.querySelector(".flash-container");
+
+        if (flash) {
+            flash.style.opacity = "0";
+            flash.style.transition = "opacity 0.5s ease";
+
+            setTimeout(function () {
+                flash.remove();
+            }, 500);
+        }
+
+    }, 3000);
+</script>
+<!-- ================= SUCCESS / ERROR MESSAGE ================= -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        <div class="flash-container">
+
+            {% for category, message in messages %}
+
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+{% endwith %}
+{% if request.args.get('registration') == 'success' %}
+
+<div class="registration-success" id="registrationSuccess">
+    Registration submitted successfully! ✓
+</div>
+
+<script>
+    setTimeout(function () {
+        const popup = document.getElementById("registrationSuccess");
+
+        if (popup) {
+            popup.style.opacity = "0";
+
+            setTimeout(function () {
+                popup.remove();
+            }, 500);
+        }
+    }, 3000);
+</script>
+
+{% endif %}
+<!-- ================= FLASH MESSAGES ================= -->
+
+{% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+
+        <div class="flash-container">
+
+            {% for message in messages %}
+
+                <div class="flash-message">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+{% endwith %}
+
+<!-- ========================================================= -->
+<!-- NAVBAR -->
+<!-- ========================================================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+    <span class="logo-symbol">♛</span>
+    <span class="logo-text">Qwin Chess Academy</span>
+</div>
+
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#courses">Courses</a>
+
+        <a href="#timings">Timings</a>
+
+        <a href="#achievements">Achievements</a>
+
+        <a href="#registration-status">Status</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <!-- LOGIN / USER AREA -->
+
+    <div class="auth-buttons">
+
+        {% if session.get("user_id") %}
+
+            <span class="welcome-user">
+                Hi, {{ session.get("user_name") }}
+            </span>
+
+            <a href="{{ url_for('logout') }}"
+               class="logout-btn">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{{ url_for('login') }}"
+               class="login-btn">
+                Sign In
+            </a>
+
+            <a href="{{ url_for('create_account') }}"
+               class="register-btn">
+                Join Now
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</header>
+
+
+
+<!-- ========================================================= -->
+<!-- FLASH MESSAGES -->
+<!-- ========================================================= -->
+
+{% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+
+        <div class="flash-container">
+
+            {% for message in messages %}
+
+                <div class="message">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+{% endwith %}
+
+
+
+<!-- ========================================================= -->
+<!-- HOME -->
+<!-- ========================================================= -->
+
+<section id="home" class="hero">
+
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            WELCOME TO
+        </p>
+
+
+        <h1>
+            Master the Game.<br>
+
+            <span>
+                Master Yourself.
+            </span>
+        </h1>
+
+
+        <p>
+            Learn chess, develop your strategy and become
+            a confident player with expert guidance.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#registration"
+               class="primary-btn">
+
+                Register Now
+
+            </a>
+
+
+            <a href="#courses"
+               class="secondary-btn">
+
+                Explore Courses
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-chess">
+        ♛
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- ABOUT -->
+<!-- ========================================================= -->
+
+<section id="about"
+         class="section">
+
+
+    <div class="section-title">
+
+        <p>
+            WHO WE ARE
+        </p>
+
+        <h2>
+            About Our Academy
+        </h2>
+
+    </div>
+
+
+
+    <div class="about-content">
+
+
+        <div class="about-text">
+
+            <h3>
+                Building Thinkers Through Chess
+            </h3>
+
+
+            <p>
+                Qwin Chess Academy is dedicated to helping
+                students discover the beauty of chess and
+                develop their skills through structured training.
+            </p>
+
+
+            <p>
+                Our programs are designed for beginners,
+                intermediate players and advanced competitors.
+            </p>
+
+        </div>
+
+
+
+        <div class="about-box">
+
+
+            <div>
+
+                <h3>
+                    100+
+                </h3>
+
+                <p>
+                    Students
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    5+
+                </h3>
+
+                <p>
+                    Years Experience
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    20+
+                </h3>
+
+                <p>
+                    Tournament Wins
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- COURSES -->
+<!-- ========================================================= -->
+
+<section id="courses"
+         class="section dark-section">
+
+
+    <div class="section-title">
+
+        <p>
+            TRAINING PROGRAMS
+        </p>
+
+        <h2>
+            Our Courses
+        </h2>
+
+    </div>
+
+
+
+    <div class="course-cards">
+
+
+
+        <!-- ================================================= -->
+        <!-- BEGINNER -->
+        <!-- ================================================= -->
+
+        <div class="course-card">
+
+
+            <div class="course-card-inner">
+
+
+                <!-- FRONT -->
+
+                <div class="course-card-front">
+
+
+                    <div class="card-icon">
+                        ♟
+                    </div>
+
+
+                    <h3>
+                        Beginner
+                    </h3>
+
+
+                    <p>
+                        Learn chess fundamentals, piece movements,
+                        basic tactics and opening principles.
+                    </p>
+
+
+                    <span>
+                        For beginners
+                    </span>
+
+
+                    <div class="tap-text">
+                        Click to know more →
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BACK -->
+
+                <div class="course-card-back">
+
+
+                    <h3>
+                        Beginner Course
+                    </h3>
+
+
+                    <p>
+                        A perfect starting point for students
+                        who are new to chess.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            ♟ Chess board & piece introduction
+                        </li>
+
+                        <li>
+                            ♟ Rules and legal moves
+                        </li>
+
+                        <li>
+                            ♟ Basic check & checkmate
+                        </li>
+
+                        <li>
+                            ♟ Opening principles
+                        </li>
+
+                        <li>
+                            ♟ Basic tactics
+                        </li>
+
+                        <li>
+                            ♟ Simple endgame concepts
+                        </li>
+
+                    </ul>
+
+
+                    <strong>
+                        Suitable for: New players
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- INTERMEDIATE -->
+        <!-- ================================================= -->
+
+        <div class="course-card">
+
+
+            <div class="course-card-inner">
+
+
+                <!-- FRONT -->
+
+                <div class="course-card-front">
+
+
+                    <div class="card-icon">
+                        ♞
+                    </div>
+
+
+                    <h3>
+                        Intermediate
+                    </h3>
+
+
+                    <p>
+                        Improve tactical thinking, strategy,
+                        openings and endgame techniques.
+                    </p>
+
+
+                    <span>
+                        For improving players
+                    </span>
+
+
+                    <div class="tap-text">
+                        Click to know more →
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BACK -->
+
+                <div class="course-card-back">
+
+
+                    <h3>
+                        Intermediate Course
+                    </h3>
+
+
+                    <p>
+                        Designed for players who already know
+                        the basics and want to improve their game.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            ♞ Advanced tactical patterns
+                        </li>
+
+                        <li>
+                            ♞ Opening preparation
+                        </li>
+
+                        <li>
+                            ♞ Positional understanding
+                        </li>
+
+                        <li>
+                            ♞ Middlegame strategy
+                        </li>
+
+                        <li>
+                            ♞ Endgame techniques
+                        </li>
+
+                        <li>
+                            ♞ Game analysis
+                        </li>
+
+                    </ul>
+
+
+                    <strong>
+                        Suitable for: Improving players
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- ADVANCED -->
+        <!-- ================================================= -->
+
+        <div class="course-card">
+
+
+            <div class="course-card-inner">
+
+
+                <!-- FRONT -->
+
+                <div class="course-card-front">
+
+
+                    <div class="card-icon">
+                        ♛
+                    </div>
+
+
+                    <h3>
+                        Advanced
+                    </h3>
+
+
+                    <p>
+                        Tournament preparation, advanced strategy,
+                        game analysis and competitive training.
+                    </p>
+
+
+                    <span>
+                        For competitive players
+                    </span>
+
+
+                    <div class="tap-text">
+                        Click to know more →
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BACK -->
+
+                <div class="course-card-back">
+
+
+                    <h3>
+                        Advanced Course
+                    </h3>
+
+
+                    <p>
+                        Intensive training for players preparing
+                        for tournaments and competitive chess.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            ♛ Advanced opening preparation
+                        </li>
+
+                        <li>
+                            ♛ Deep tactical calculation
+                        </li>
+
+                        <li>
+                            ♛ Strategic planning
+                        </li>
+
+                        <li>
+                            ♛ Tournament preparation
+                        </li>
+
+                        <li>
+                            ♛ Professional game analysis
+                        </li>
+
+                        <li>
+                            ♛ Competitive mindset training
+                        </li>
+
+                    </ul>
+
+
+                    <strong>
+                        Suitable for: Tournament players
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- TIMINGS -->
+<!-- ========================================================= -->
+
+<section id="timings"
+         class="section">
+
+
+    <div class="section-title">
+
+        <p>
+            CLASS SCHEDULE
+        </p>
+
+        <h2>
+            Batch Timings
+        </h2>
+
+    </div>
+
+
+
+    <div class="table-container">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Batch
+                    </th>
+
+                    <th>
+                        Days
+                    </th>
+
+                    <th>
+                        Morning
+                    </th>
+
+                    <th>
+                        Evening
+                    </th>
+
+                    <th>
+                        Mode
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody>
+
+
+                <tr>
+
+                    <td>
+                        Basic
+                    </td>
+
+                    <td>
+                        Sat & Sun
+                    </td>
+
+                    <td>
+                        6:00 AM - 7:30 AM
+                    </td>
+
+                    <td>
+                        6:00 PM - 7:30 PM
+                    </td>
+
+                    <td>
+                        Offline
+                    </td>
+
+                </tr>
+
+
+
+                <tr>
+
+                    <td>
+                        Intermediate
+                    </td>
+
+                    <td>
+                        Sat & Sun
+                    </td>
+
+                    <td>
+                        6:00 AM - 7:30 AM
+                    </td>
+
+                    <td>
+                        6:00 PM - 7:30 PM
+                    </td>
+
+                    <td>
+                        Offline
+                    </td>
+
+                </tr>
+
+
+
+                <tr>
+
+                    <td>
+                        Advanced
+                    </td>
+
+                    <td>
+                        Sat & Sun
+                    </td>
+
+                    <td>
+                        6:00 AM - 7:30 AM
+                    </td>
+
+                    <td>
+                        6:00 PM - 7:30 PM
+                    </td>
+
+                    <td>
+                        Offline
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+    <!-- ========================================================= -->
+<!-- FEE STRUCTURE -->
+<!-- ========================================================= -->
+
+<div class="fee-section">
+
+    <div class="fee-header">
+        <span class="fee-label">CHESS ACADEMY</span>
+
+        <h3>Fee Structure</h3>
+
+        <p>
+            Choose the training level that matches your current chess skills.
+        </p>
+    </div>
+
+    <div class="fee-cards">
+
+        <!-- Beginner -->
+        <div class="fee-card">
+            <div class="fee-icon">♟</div>
+
+            <h4>Beginner</h4>
+
+            <div class="fee-price">
+                ₹900
+                <span>/ month</span>
+            </div>
+
+            <p>For students starting their chess journey.</p>
+        </div>
+
+
+        <!-- Intermediate -->
+        <div class="fee-card">
+            <div class="fee-icon">♞</div>
+
+            <h4>Intermediate</h4>
+
+            <div class="fee-price">
+                ₹1,200
+                <span>/ month</span>
+            </div>
+
+            <p>For students with basic chess knowledge and experience.</p>
+        </div>
+
+
+        <!-- Advanced -->
+        <div class="fee-card">
+            <div class="fee-icon">♛</div>
+
+            <h4>Advanced</h4>
+
+            <div class="fee-price">
+                ₹1,500
+                <span>/ month</span>
+            </div>
+
+            <p>For advanced players looking to improve their competitive skills.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- ONLINE CHESS SESSIONS -->
+<!-- ========================================================= -->
+
+<div class="online-session">
+
+    <div class="online-session-header">
+
+        <span class="online-label">
+            💻 ONLINE LEARNING
+        </span>
+
+        <h3>
+            Online Chess Sessions
+        </h3>
+
+        <p>
+            Flexible online training arranged according to
+            student availability and instructor schedules.
+        </p>
+
+    </div>
+
+
+    <div class="online-session-content">
+
+        <div class="online-icon">
+            ♞
+        </div>
+
+
+        <div class="online-info">
+
+            <h4>
+                Learn Chess From Anywhere
+            </h4>
+
+            <p>
+                Our online sessions are scheduled flexibly based
+                on student requirements and instructor availability.
+                Contact us to discuss a suitable session time.
+            </p>
+
+            <div class="online-features">
+
+                <span>✓ Beginner to Advanced</span>
+
+                <span>✓ Flexible Scheduling</span>
+
+                <span>✓ Interactive Training</span>
+
+                <span>✓ One-to-One / Small Group</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="online-action">
+
+            <a href="#enquiry" class="online-btn">
+                Enquire Now →
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- ACHIEVEMENTS -->
+<!-- ========================================================= -->
+
+<section id="achievements"
+         class="section">
+
+
+    <div class="section-title">
+
+        <p>
+            OUR SUCCESS
+        </p>
+
+        <h2>
+            Achievements
+        </h2>
+
+    </div>
+
+
+
+    <div class="achievement-grid">
+
+
+        <div class="achievement">
+
+            <div>
+                🏆
+            </div>
+
+            <h3>
+                20+
+            </h3>
+
+            <p>
+                Tournament Victories
+            </p>
+
+        </div>
+
+
+
+        <div class="achievement">
+
+            <div>
+                🥇
+            </div>
+
+            <h3>
+                15+
+            </h3>
+
+            <p>
+                Championship Titles
+            </p>
+
+        </div>
+
+
+
+        <div class="achievement">
+
+            <div>
+                ♟
+            </div>
+
+            <h3>
+                100+
+            </h3>
+
+            <p>
+                Trained Students
+            </p>
+
+        </div>
+
+
+
+        <div class="achievement">
+
+            <div>
+                ⭐
+            </div>
+
+            <h3>
+                50+
+            </h3>
+
+            <p>
+                Rated Players
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     REGISTRATION STATUS
+========================================================= -->
+
+<section id="registration-status" class="status-section">
+
+    <div class="status-container">
+
+        <div class="status-title">
+
+            <p>TRACK YOUR APPLICATION</p>
+
+            <h2>
+                Check Registration <span>Status</span>
+            </h2>
+
+            <span>
+                Enter the email and phone number used during registration.
+            </span>
+
+        </div>
+
+
+        <div class="status-form-box">
+
+            <form action="{{ url_for('check_registration_status') }}"
+                  method="POST">
+
+                <!-- EMAIL -->
+
+                <div class="status-form-group">
+
+                    <label for="status_email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="status_email"
+                        name="email"
+                        placeholder="Enter your registered email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="status-form-group">
+
+                    <label for="status_phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="status_phone"
+                        name="phone"
+                        placeholder="Enter your registered phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="status-check-btn">
+
+                    Check Registration Status
+
+                </button>
+
+            </form>
+
+
+            {% if registration_status %}
+
+                <div class="status-result">
+
+                    {% if registration_status == "Approved" %}
+
+                        <span class="status-badge status-approved">
+                            ✓ Approved
+                        </span>
+
+                        <h3>Registration Approved!</h3>
+
+                        <p>
+                            Your registration has been approved by
+                            Qwin Chess Academy.
+                        </p>
+
+
+                    {% elif registration_status == "Rejected" %}
+
+                        <span class="status-badge status-rejected">
+                            ✕ Rejected
+                        </span>
+
+                        <h3>Registration Not Approved</h3>
+
+                        <p>
+                            Your registration was not approved.
+                            Please contact Qwin Chess Academy
+                            for more information.
+                        </p>
+
+
+                    {% else %}
+
+                        <span class="status-badge status-pending">
+                            ⏳ Pending
+                        </span>
+
+                        <h3>Registration Under Review</h3>
+
+                        <p>
+                            Your registration has been received
+                            and is currently being reviewed.
+                        </p>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+
+            {% if status_error %}
+
+                <div class="status-error">
+                    {{ status_error }}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ========================================================= -->
+<!-- GALLERY -->
+<!-- ========================================================= -->
+
+<section id="gallery"
+         class="section dark-section">
+
+
+    <div class="section-title">
+
+        <p>
+            MEMORIES
+        </p>
+
+        <h2>
+            Academy Gallery
+        </h2>
+
+    </div>
+
+
+
+    <div class="gallery">
+
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/image1.jpeg') }}" alt="Chess Academy">
+        </div>
+
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/image2.jpeg') }}" alt="Chess Academy">
+        </div>
+
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/image3.jpeg') }}" alt="Chess Academy">
+        </div>
+
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/image4.jpeg') }}" alt="Chess Academy">
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= REGISTRATION ================= -->
+
+<section id="registration" class="section">
+
+    <div class="section-title">
+
+        <p>JOIN US</p>
+
+        <h2>Register for Chess Classes</h2>
+
+    </div>
+
+
+    <div class="form-container">
+
+        <form action="{{ url_for('register') }}" method="POST">
+
+            <!-- Student Name + Age -->
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    name="student_name"
+                    placeholder="Student Name"
+                    required
+                >
+
+                <input
+                    type="number"
+                    name="age"
+                    placeholder="Age"
+                    min="3"
+                    max="100"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Parent Name + Phone -->
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    name="parent_name"
+                    placeholder="Parent / Guardian Name"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Email + Chess Level -->
+
+            <div class="form-row">
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <select
+                    name="chess_level"
+                    required
+                >
+
+                    <option value="">
+                        Chess Level
+                    </option>
+
+                    <option value="Beginner">
+                        Beginner
+                    </option>
+
+                    <option value="Intermediate">
+                        Intermediate
+                    </option>
+
+                    <option value="Advanced">
+                        Advanced
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Message -->
+
+            <textarea
+                name="message"
+                placeholder="Any message or questions?"
+                rows="5"
+            ></textarea>
+
+
+            <!-- Submit -->
+
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                Submit Registration
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     ENQUIRY SECTION
+===================================================== -->
+
+<section class="enquiry-section" id="enquiry">
+
+    <div class="enquiry-container">
+
+        <!-- LEFT SIDE -->
+        <div class="enquiry-info">
+
+            <span class="enquiry-label">
+                HAVE A QUESTION?
+            </span>
+
+            <h2>
+                Send Us an <span>Enquiry</span>
+            </h2>
+
+            <p>
+                Have questions about our chess classes, timings,
+                fees or training programs? Send us a message and
+                our academy team will get back to you.
+            </p>
+
+            <div class="enquiry-points">
+
+                <div class="enquiry-point">
+                    <div class="enquiry-icon">♟</div>
+                    <div>
+                        <h3>Chess Classes</h3>
+                        <p>Know more about our training programs.</p>
+                    </div>
+                </div>
+
+                <div class="enquiry-point">
+                    <div class="enquiry-icon">⏰</div>
+                    <div>
+                        <h3>Class Timings</h3>
+                        <p>Ask us about available batches.</p>
+                    </div>
+                </div>
+
+                <div class="enquiry-point">
+                    <div class="enquiry-icon">📞</div>
+                    <div>
+                        <h3>Quick Response</h3>
+                        <p>Our team will contact you soon.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE - FORM -->
+        <div class="enquiry-form-box">
+
+            <h3>Send an Enquiry</h3>
+
+            <p class="enquiry-form-subtitle">
+                Fill in your details and we'll contact you.
+            </p>
+
+            <form action="{{ url_for('submit_enquiry') }}" method="POST">
+
+                <!-- NAME -->
+                <div class="enquiry-form-group">
+
+                    <label for="enquiry_name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="enquiry_name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="enquiry-form-group">
+
+                    <label for="enquiry_email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="enquiry_email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PHONE -->
+                <div class="enquiry-form-group">
+
+                    <label for="enquiry_phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="enquiry_phone"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SUBJECT -->
+                <div class="enquiry-form-group">
+
+                    <label for="enquiry_subject">
+                        Subject
+                    </label>
+
+                    <input
+                        type="text"
+                        id="enquiry_subject"
+                        name="subject"
+                        placeholder="What would you like to know?"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- MESSAGE -->
+                <div class="enquiry-form-group">
+
+                    <label for="enquiry_message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="enquiry_message"
+                        name="message"
+                        rows="5"
+                        placeholder="Write your enquiry here..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    type="submit"
+                    class="enquiry-submit-btn"
+                >
+                    Send Enquiry
+                    <span>→</span>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- CONTACT -->
+<!-- ========================================================= -->
+
+<section id="contact"
+         class="section dark-section">
+
+
+    <div class="section-title">
+
+        <p>
+            GET IN TOUCH
+        </p>
+
+        <h2>
+            Contact Us
+        </h2>
+
+    </div>
+
+
+
+    <div class="contact-container">
+
+
+        <div class="contact-box">
+
+            <h3>
+                📍 Address
+            </h3>
+
+            <p>
+                Sai Lakshmi Nagar, Nenmeli,<br>
+                Chengalpattu - 603003,<br>
+                Tamil Nadu.
+            </p>
+
+        </div>
+
+
+
+        <div class="contact-box">
+
+            <h3>
+                📞 Phone
+            </h3>
+
+            <p>
+                +91 7200876187
+            </p>
+
+        </div>
+
+
+
+        <div class="contact-box">
+
+            <h3>
+                📧 Email
+            </h3>
+
+            <p>
+                qwinchessacademy@gmail.com
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer>
+
+
+    <div class="logo">
+    <span class="logo-symbol">♛</span>
+    <span class="logo-text">Qwin Chess Academy</span>
+</div>
+
+
+    <p>
+        Learn • Practice • Compete • Win
+    </p>
+
+
+
+    <!-- SOCIAL MEDIA -->
+
+    <div class="social-links">
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="https://www.instagram.com/qwin_chess/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon instagram"
+            aria-label="Instagram">
+
+            <i class="fa-brands fa-instagram"></i>
+
+        </a>
+
+
+
+        <!-- WHATSAPP -->
+
+        <a
+            href="https://wa.me/7200876187"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon whatsapp"
+            aria-label="WhatsApp">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+        </a>
+
+
+    </div>
+
+
+
+    <p class="copyright">
+
+        © Qwin Chess Academy. All Rights Reserved.
+
+    </p>
+
+
+</footer>
+
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    /*
+       COURSE CARD FLIP
+       ----------------
+       Click any course card
+       to show the detailed information.
+    */
+
+
+    const cards =
+        document.querySelectorAll(".course-card");
+
+
+    cards.forEach(function (card) {
+
+
+        card.addEventListener("click", function () {
+
+
+            this.classList.toggle("flipped");
+
+
+        });
+
+
+    });
+
+
+});
+
+</script>
+
+
+</body>
+
+</html>
